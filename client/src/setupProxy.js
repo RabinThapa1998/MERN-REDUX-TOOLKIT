@@ -1,7 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const url =
   process.env.NODE_ENV == "production"
-    ? "https://serverless2-liart.vercel.app"
+    ? "https://serverless2-hs5zkbxah-rabinthapa1998.vercel.app"
     : "http://localhost:5500";
 
 module.exports = function (app) {
