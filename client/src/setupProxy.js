@@ -1,5 +1,7 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
-const url = process.env.Production ? "" : "http://localhost:5500";
+const url = process.env.Production
+  ? "https://serverless2-liart.vercel.app"
+  : "http://localhost:5500";
 module.exports = function (app) {
   app.use(
     "/signup",

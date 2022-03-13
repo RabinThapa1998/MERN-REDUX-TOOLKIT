@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import Todo from "./components/Todo";
@@ -8,11 +8,14 @@ import { addToken } from "./app/reducers/authReducer";
 function App() {
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
-  useEffect(() => {
+
+  const stableSetter = useCallback(() => {
     dispatch(addToken());
   }, []);
-  console.log("token app", token);
 
+  useEffect(() => {
+    stableSetter();
+  }, [stableSetter]);
   return (
     <div className="App">
       <h3>APP JS</h3>
