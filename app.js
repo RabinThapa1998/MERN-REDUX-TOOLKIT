@@ -5,9 +5,9 @@ const Usermodel = require("./models/user");
 const Todomodel = require("./models/todo");
 const bcrypt = require("bcryptjs");
 const jwttoken = require("jsonwebtoken");
-const { SECRET_KEY, DATABASE, PORT } = require("./config/keys");
+const { SECRET_KEY, DATABASE } = require("./config/keys");
 app.use(express.json());
-
+const PORT = 5500;
 const JWT_SECRET = SECRET_KEY;
 
 const DB = DATABASE;
