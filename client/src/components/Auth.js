@@ -32,37 +32,53 @@ function Auth() {
   }
 
   return (
-    <div>
-      {loading && <CircularProgress />}
-      {error && <Typography variant="h4">{error}</Typography>}
-      <Stack component={"form"} onSubmit={(e) => handleSubmit(e)}>
-        <Typography variant={"h1"}>{auth}</Typography>
-        <TextField
-          name="email"
-          value={email}
-          label="email"
-          onChange={(e) => setEmail(e.target.value)}
-        ></TextField>
-        <TextField
-          name="password"
-          value={password}
-          label="password"
-          onChange={(e) => setPassword(e.target.value)}
-        ></TextField>
-        <Box>
-          {auth == "signin" ? (
-            <Typography onClick={() => setAuth("signup")} component={"h6"}>
-              Doesn't have an account
-            </Typography>
-          ) : (
-            <Typography onClick={() => setAuth("signin")} component="h6">
-              Already have an account
-            </Typography>
-          )}
-        </Box>
-        <Button type="submit">{auth}</Button>
-      </Stack>
-    </div>
+    <Box sx={{ placeItems: "center", display: "grid" }}>
+      <Paper sx={{ width: "500px" }}>
+        {loading && <CircularProgress sx={{ margin: "auto" }} />}
+        {error && <Typography variant="h6">{error}</Typography>}
+        <Stack
+          component={"form"}
+          onSubmit={(e) => handleSubmit(e)}
+          sx={{ p: 5 }}
+        >
+          <Typography variant={"h5"} sx={{ my: 2, fontWeight: "bold" }}>
+            {auth}
+          </Typography>
+          <TextField
+            name="email"
+            value={email}
+            label="email"
+            onChange={(e) => setEmail(e.target.value)}
+          ></TextField>
+          <TextField
+            name="password"
+            value={password}
+            label="password"
+            onChange={(e) => setPassword(e.target.value)}
+          ></TextField>
+          <Box sx={{ my: 2 }}>
+            {auth == "signin" ? (
+              <Typography
+                onClick={() => setAuth("signup")}
+                component={"h6"}
+                sx={{ py: "5", cursor: "pointer" }}
+              >
+                Doesn't have an account
+              </Typography>
+            ) : (
+              <Typography
+                onClick={() => setAuth("signin")}
+                component="h6"
+                sx={{ py: "5", cursor: "pointer" }}
+              >
+                Already have an account
+              </Typography>
+            )}
+          </Box>
+          <Button type="submit">{auth}</Button>
+        </Stack>
+      </Paper>
+    </Box>
   );
 }
 

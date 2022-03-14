@@ -18,7 +18,7 @@ function App() {
   }, [stableSetter]);
   return (
     <div className="App">
-      <h3>APP JS</h3>
+      <h3 style={{ textAlign: "center" }}>WELCOME</h3>
       {token ? <Todo /> : <Auth />}
     </div>
   );
