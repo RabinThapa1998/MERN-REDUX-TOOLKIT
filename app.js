@@ -13,7 +13,7 @@ const JWT_SECRET = SECRET_KEY;
 
 const url =
   process.env.NODE_ENV == "production"
-    ? "https://serverless2-pi0h5tqcf-rabinthapa1998.vercel.app"
+    ? "https://https://clientsite.vercel.app"
     : "http://localhost:3000";
 
 app.use(
