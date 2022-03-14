@@ -18,7 +18,7 @@ const url =
 
 app.use(
   cors({
-    origin: url,
+    origin: "https://https://clientsite.vercel.app",
     credentials: true,
   })
 );
