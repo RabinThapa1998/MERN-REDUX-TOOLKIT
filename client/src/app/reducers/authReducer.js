@@ -13,7 +13,7 @@ export const signupUser = createAsyncThunk("signupUser", async (body) => {
 });
 
 export const signinUser = createAsyncThunk("signinUser", async (body) => {
-  const result = await fetch11("/signin", body);
+  const result = await fetch2("/signin", body);
 
   return result;
 });
