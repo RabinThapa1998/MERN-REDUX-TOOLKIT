@@ -16,12 +16,18 @@ const JWT_SECRET = SECRET_KEY;
 //     ? "https://clientsite.vercel.app"
 //     : "http://localhost:3000";
 
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-  })
-);
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET,PUT,PATCH,POST,DELETE,OPTIONS"
+  );
+  next();
+});
 
 const DB = DATABASE;
 mongoose
