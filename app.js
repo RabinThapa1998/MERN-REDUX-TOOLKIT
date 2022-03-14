@@ -11,14 +11,14 @@ app.use(express.json());
 const PORT = 5500;
 const JWT_SECRET = SECRET_KEY;
 
-const url =
-  process.env.NODE_ENV == "production"
-    ? "https://clientsite.vercel.app"
-    : "http://localhost:3000";
+// const url =
+//   process.env.NODE_ENV == "production"
+//     ? "https://clientsite.vercel.app"
+//     : "http://localhost:3000";
 
 app.use(
   cors({
-    origin: url,
+    origin: "*",
     credentials: true,
   })
 );
@@ -137,10 +137,10 @@ app.post("/signin", async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV == "production") {
-  const path = require("path");
-  app.get("/", (req, res) => {
-    app.use(express.static(path.resolve(__dirname, "client", "build")));
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV == "production") {
+//   const path = require("path");
+//   app.get("/", (req, res) => {
+//     app.use(express.static(path.resolve(__dirname, "client", "build")));
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
