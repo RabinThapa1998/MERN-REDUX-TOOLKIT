@@ -18,7 +18,7 @@ const url =
 
 app.use(
   cors({
-    origin: "*",
+    origin: url,
     credentials: true,
   })
 );
