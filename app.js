@@ -11,19 +11,17 @@ app.use(express.json());
 const PORT = 5500;
 const JWT_SECRET = SECRET_KEY;
 
-// const url =
-//   process.env.NODE_ENV == "production"
-//     ? "https://serverless2-pi0h5tqcf-rabinthapa1998.vercel.app"
-//     : "http://localhost:3000";
+const url =
+  process.env.NODE_ENV == "production"
+    ? "https://serverless2-pi0h5tqcf-rabinthapa1998.vercel.app"
+    : "http://localhost:3000";
 
-// app.use(
-//   cors({
-//     origin: url,
-//     credentials: true,
-//   })
-// );
-
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+    credentials: true,
+  })
+);
 
 const DB = DATABASE;
 mongoose
