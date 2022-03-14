@@ -13,12 +13,12 @@ const JWT_SECRET = SECRET_KEY;
 
 const url =
   process.env.NODE_ENV == "production"
-    ? "https://https://clientsite.vercel.app/"
+    ? "https://clientsite.vercel.app"
     : "http://localhost:3000";
 
 app.use(
   cors({
-    origin: "https://https://clientsite.vercel.app",
+    origin: url,
     credentials: true,
   })
 );
