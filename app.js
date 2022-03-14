@@ -6,9 +6,22 @@ const Todomodel = require("./models/todo");
 const bcrypt = require("bcryptjs");
 const jwttoken = require("jsonwebtoken");
 const { SECRET_KEY, DATABASE } = require("./config/keys");
+const cors = require("cors");
 app.use(express.json());
 const PORT = 5500;
 const JWT_SECRET = SECRET_KEY;
+
+const url =
+  process.env.NODE_ENV == "production"
+    ? "https://serverless2-hs5zkbxah-rabinthapa1998.vercel.app"
+    : "http://localhost:5500";
+
+app.use(
+  cors({
+    origin: url,
+    credentials: true,
+  })
+);
 
 const DB = DATABASE;
 mongoose
