@@ -1,6 +1,6 @@
 const url =
   process.env.NODE_ENV == "production"
-    ? "https://serverless2-liart.vercel.app"
+    ? "https://todo-server-gamma.vercel.app"
     : "http://localhost:5500";
 
 export const fetch2 = async (api, body) => {
